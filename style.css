@@ -155,6 +155,44 @@ button {
 
 .options .option .extra {
   position: absolute;
-  top: 0;
-  left: 0;
+  z-index: 10;
+  /* top: 0;
+  left: 0; */
+}
+
+#selected ul {
+  list-style-type: none;
+}
+
+#selected ul li {
+  display: inline-block;
+}
+
+#selected ul li:not(#selected ul li:first-child) {
+  margin-left: 1rem;
+}
+
+#selected ul li img {
+  width: 3em;
+}
+
+/* Animation */
+
+.animate-feature {
+  animation: animate-feature_kf 2s ease-in-out 1 forwards;
+}
+
+@keyframes animate-feature_kf {
+  0% {
+    transform: translate(var(--deltaX), var(--deltaY));
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    z-index: 2;
+  }
+  100% {
+    transform: none;
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    z-index: 2;
+  }
 }
