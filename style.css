@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 5vw;
+  margin-left: 10vw;
+  font-family: "Open Sans", sans-serif;
+}
+
+.preview {
+  grid-column: 1 / span 1;
+  position: relative;
+}
+
+.preview #back path:hover,
+.preview #seat path:hover,
+.preview #seat_bottom path:hover {
+  cursor: pointer;
+  stroke: #333333;
+  stroke-width: 5px;
+  stroke-dasharray: 2, 1;
+  stroke-linejoin: round;
+}
+
+.configurator {
+  grid-column: 2 / span 1;
+}
+
+#shadow_Image-2,
+#shadow_Image,
+.layer {
+  pointer-events: none;
+}
+
+.base {
+  max-width: 500px;
+}
+
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 500px;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.configurator > *:not(.configurator > *:first-child) {
+  margin-top: 3vw;
+}
+
+.colors {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 400px;
+}
+
+.border {
+  width: 5vw;
+  height: 5vw;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+}
+
+.border.active {
+  border: 1px solid #37a0e5;
+}
+
+.color {
+  width: 4vw;
+  height: 4vw;
+  border-radius: 100%;
+  border: 1px solid #d2d2d2;
+  cursor: pointer;
+}
+
+.color[data-color="#d7d6d7"] {
+  background-color: #d7d6d7;
+}
+.color[data-color="#33B4FF"] {
+  background-color: #33b4ff;
+}
+.color[data-color="#52D42E"] {
+  background-color: #52d42e;
+}
+.color[data-color="#E45317"] {
+  background-color: #e45317;
+}
+.color[data-color="#E4BA17"] {
+  background-color: #e4ba17;
+}
+.color[data-color="#FD54F0"] {
+  background-color: #fd54f0;
+}
+.color[data-color="#424242"] {
+  background-color: #424242;
+}
+.color[data-color="#F4F653"] {
+  background-color: #f4f653;
+}
+
+button {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  background-color: #ffffff;
+  border: 1px solid #d7d6d7;
+  border-radius: 5px;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+}
+
+.options {
+  border-radius: 5px;
+  padding: 1rem;
+  padding-left: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  max-width: 500px;
+}
+
+.options .option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  color: #aaa;
+  position: relative;
+  margin: 0.5rem;
+}
+
+.options .option:not(.options .option:last-child) {
+  margin-right: 2rem;
+}
+
+.options .option:hover {
+  cursor: pointer;
+}
+
+.options .option.chosen {
+  /* text-decoration: underline; */
+  color: #000;
+}
+
+.options .option img {
+  width: 7vw;
+  height: auto;
+}
+
+.options .option .extra {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

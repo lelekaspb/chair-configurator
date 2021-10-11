@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Chair configurator</title>
+  </head>
+  <body>
+    <div class="content">
+      <section class="preview">
+        <!-- <img src="images/layers/base_cut-01.svg" alt="Basic chair" class="base" /> -->
+        <div id="base" class="base"></div>
+
+        <img
+          src="images/layers/casters_cut.png"
+          alt="Flexible casters"
+          class="hide layer"
+          data-feature="casters"
+        />
+        <img
+          src="images/layers/headrest_cut.png"
+          alt="Headrest"
+          class="hide layer"
+          data-feature="headrest"
+        />
+        <img
+          src="images/layers/arm-left_cut.png"
+          alt="Left arm"
+          class="hide layer"
+          data-feature="armrests"
+        />
+        <img
+          src="images/layers/arm-right_cut.png"
+          alt="Right arm"
+          class="hide layer"
+          data-feature="armrests"
+        />
+      </section>
+      <section class="configurator">
+        <div class="restart">
+          <button id="restart">Restart</button>
+        </div>
+        <div class="colors">
+          <div class="border active">
+            <div class="color" data-color="#d7d6d7"></div>
+          </div>
+          <div class="border">
+            <div class="color" data-color="#33B4FF"></div>
+          </div>
+          <div class="border">
+            <div class="color" data-color="#52D42E"></div>
+          </div>
+          <div class="border">
+            <div class="color" data-color="#E45317"></div>
+          </div>
+          <div class="border">
+            <div class="color" data-color="#E4BA17"></div>
+          </div>
+          <div class="border">
+            <div class="color" data-color="#FD54F0"></div>
+          </div>
+          <div class="border">
+            <div class="color" data-color="#424242"></div>
+          </div>
+          <div class="border">
+            <div class="color" data-color="#F4F653"></div>
+          </div>
+        </div>
+        <div class="options_wrapper">
+          Available features
+          <div class="options">
+            <figure class="option" data-feature="casters">
+              <img src="images/features/feature-casters.png" alt="casters" />
+              <!-- <img
+              src="images/features/feature-casters.png"
+              alt="casters"
+              class="extra"
+            /> -->
+              <figcaption>Flexible casters</figcaption>
+            </figure>
+            <figure class="option" data-feature="headrest">
+              <img src="images/features/feature-headrest.png" alt="headrest" />
+              <!-- <img
+              src="images/features/feature-headrest.png"
+              alt="headrest"
+              class="extra"
+            /> -->
+              <figcaption>Headrest</figcaption>
+            </figure>
+            <figure class="option" data-feature="armrests">
+              <img src="images/features/feature-arms.png" alt="arms" />
+              <!-- <img
+              src="images/features/feature-arms.png"
+              alt="arms"
+              class="extra"
+            /> -->
+              <figcaption>Armrests</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="save">
+          <button id="save">Save</button>
+        </div>
+      </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
