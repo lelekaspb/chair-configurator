@@ -266,6 +266,7 @@ function animateFeatureOut(existingFeatureElement, optionToAnimate) {
   });
 }
 
+// calculate difference between first and last image position frame and add the variables onto css object model
 function setDeltas(firstFrame, lastFrame) {
   const deltaX = firstFrame.left - lastFrame.left;
   const deltaY = firstFrame.top - lastFrame.top;
@@ -274,7 +275,7 @@ function setDeltas(firstFrame, lastFrame) {
     .setAttribute("style", `--deltaX: ${deltaX}px; --deltaY: ${deltaY}px`);
 }
 
-// Create featureElement to be appended to #selected ul
+// Create featureElement to be appended to selected features ul
 function createFeatureElement(feature) {
   const li = document.createElement("li");
   li.dataset.feature = feature;
@@ -288,6 +289,7 @@ function createFeatureElement(feature) {
   return li;
 }
 
+// capitalize text
 function capitalize(text) {
   return text.substring(0, 1).toUpperCase() + text.substring(1).toLowerCase();
 }
