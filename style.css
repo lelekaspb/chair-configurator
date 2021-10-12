@@ -145,7 +145,6 @@ button {
 }
 
 .options .option.chosen {
-  /* text-decoration: underline; */
   color: #000;
 }
 
@@ -156,7 +155,6 @@ button {
 
 .options .option .extra {
   position: absolute;
-  z-index: 10;
   /* top: 0;
   left: 0; */
 }
@@ -178,7 +176,6 @@ button {
 }
 
 /* Animation */
-
 .animate-feature {
   animation: animate-feature_kf 2s ease-in-out 1 forwards;
 }
@@ -188,12 +185,10 @@ button {
     transform: translate(var(--deltaX), var(--deltaY));
     transform-origin: 0 0;
     -webkit-transform-origin: 0 0;
-    z-index: 2;
   }
   100% {
     transform: none;
     transform-origin: 0 0;
     -webkit-transform-origin: 0 0;
-    z-index: 2;
   }
 }
