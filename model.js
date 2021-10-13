@@ -3,7 +3,7 @@
 export const defaultColor = "#d7d6d7";
 
 // default chosen color
-export let chosenColor = "#d7d6d7";
+export let chosenColor = defaultColor;
 
 // default chosen colors and features parts
 const defaultBaseColors = {
@@ -37,10 +37,12 @@ export async function loadSvg() {
   }
 }
 
+// change the "chosenColor" variable
 export function changeChosenColorVar(color) {
   chosenColor = color;
 }
 
+// reset the "chair" object to default (for the "restart" button)
 export function resetChairToDefault() {
   chair = defaultBaseColors;
 }
@@ -57,6 +59,7 @@ export function updateLocalStarage(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
 
+// change feature property of "chair.features" object from true to false or from false to true
 export function changeChairFeature(feature) {
   chair.features[feature] = !chair.features[feature];
 }

@@ -1,7 +1,9 @@
 "use strict";
 
+// import everything from model.js file and call it "model" in this file
 import * as model from "./model.js";
 
+// object for storing css selectors for later use in querySelector method
 export const DOMStrings = {
   seat: "#seat path",
   back: "#back path",
@@ -137,6 +139,7 @@ export function animateFeatureOut(existingFeatureElement, optionToAnimate) {
   });
 }
 
+// add translate X-axis and Y-axis values to CSS OM for use in animating feature images
 export function setDeltas(firstFrame, lastFrame) {
   const deltaX = firstFrame.left - lastFrame.left;
   const deltaY = firstFrame.top - lastFrame.top;
@@ -145,10 +148,12 @@ export function setDeltas(firstFrame, lastFrame) {
     .setAttribute("style", `--deltaX: ${deltaX}px; --deltaY: ${deltaY}px`);
 }
 
+// toggle "chosen" class on a feature option
 export function toggleChosenClass(element) {
   element.closest(DOMStrings.option).classList.toggle("chosen");
 }
 
+// toggle "hide" class on image visualizer layers
 export function toggleHideClass(feature) {
   document
     .querySelectorAll(`${DOMStrings.preview} img[data-feature="${feature}"]`)
@@ -157,8 +162,9 @@ export function toggleHideClass(feature) {
     });
 }
 
+// add clicked feature to the selected features list
 export function addFeature(element, feature) {
-  // create new li for reflecting chosen feature in selected features list
+  // create new li for reflecting chosen feature in selected features
   const featureElement = createFeatureElement(feature);
   // record first position of the image for FLIP animation
   const firstFrame = element
@@ -175,6 +181,7 @@ export function addFeature(element, feature) {
   animateFeatureIn(firstFrame, lastFrame);
 }
 
+// remove clicked feature from the selected features list
 export function removeFeature(element, feature) {
   const existingFeatureElement = document.querySelector(
     `${DOMStrings.selectedList} li[data-feature="${feature}"]`
@@ -186,6 +193,7 @@ export function removeFeature(element, feature) {
   animateFeatureOut(existingFeatureElement, optionToAnimate);
 }
 
+// get chosen chair parts colors to be used in the controller module
 export function getChairColors() {
   return {
     seat: document.querySelector(DOMStrings.seat).style.fill,

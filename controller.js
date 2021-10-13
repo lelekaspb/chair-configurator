@@ -1,6 +1,8 @@
 "use strict";
 
+// import everything from model.js file and call it "model" in this file
 import * as model from "./model.js";
+// import everything from view.js file and call it "view" in this file
 import * as view from "./view.js";
 
 // initiate app when DOM contents are loaded
@@ -103,14 +105,15 @@ function toggleFeature(e) {
   model.changeChairFeature(feature);
 
   // toggle the "chosen" class on the feature option
-  //   e.target.closest(".option").classList.toggle("chosen");
   view.toggleChosenClass(e.target);
   // un-hide the corresponding image layer on the visualizer
   view.toggleHideClass(feature);
 
+  // if the feature was changed to true, animate adding the feature to the selected features list
   if (model.chair.features[feature]) {
     view.addFeature(e.target, feature);
   } else {
+    // if the feature was changed to false, animate removing the feature from the selected features list
     view.removeFeature(e.target, feature);
   }
 }
