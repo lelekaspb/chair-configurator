@@ -175,6 +175,26 @@ button {
   width: 3em;
 }
 
+.link {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.link > * {
+  margin-top: 1rem;
+}
+
+#link_button,
+#copy_link {
+  width: 15rem;
+}
+input#link_output {
+  border: 1px solid #333333;
+  border-radius: 5px;
+  height: 2.5rem;
+}
+
 /* Animation */
 .animate-feature {
   animation: animate-feature_kf 2s ease-in-out 1 forwards;

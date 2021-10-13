@@ -16,6 +16,9 @@ export const DOMStrings = {
   extra: ".extra",
   selectedList: "#selected ul",
   preview: ".preview",
+  linkButton: "#link_button",
+  linkOutput: "#link_output",
+  copyLinkButton: "#copy_link",
 };
 
 // insert svg into DOM
@@ -35,7 +38,7 @@ export function colorizeSvg() {
 export function renderFeatures() {
   // create array out of chair.features object in order to loop through it
   const featuresArray = Object.entries(model.chair.features);
-
+  console.log(featuresArray);
   // loop through saved features
   for (const [key, value] of featuresArray) {
     // if value of the feature ("key") is false, add class "hide" to the corresponding image layer on the chair visualizer
@@ -200,4 +203,17 @@ export function getChairColors() {
     back: document.querySelector(DOMStrings.back).style.fill,
     seatBottom: document.querySelector(DOMStrings.seatBottom).style.fill,
   };
+}
+
+// output link into input field
+export function outputLink(url) {
+  document.querySelector(DOMStrings.linkOutput).value = url;
+}
+
+// copy link into clipboard
+export function copyLink() {
+  const copiedText = document.querySelector(DOMStrings.linkOutput);
+  copiedText.select();
+  navigator.clipboard.writeText(copiedText.value);
+  // the link is now copied
 }

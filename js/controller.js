@@ -8,6 +8,8 @@ import * as view from "./view.js";
 // initiate app when DOM contents are loaded
 async function start() {
   const svgData = await model.loadSvg();
+  const urlParams = model.getUrlParams();
+  model.configurateChair(urlParams);
   renderUI(svgData);
 }
 
@@ -51,6 +53,16 @@ function registerEventListeners() {
   document.querySelectorAll(view.DOMStrings.option).forEach((option) => {
     option.addEventListener("click", toggleFeature);
   });
+
+  // for generate link button
+  document
+    .querySelector(view.DOMStrings.linkButton)
+    .addEventListener("click", generateLink);
+
+  // for copy link button
+  document
+    .querySelector(view.DOMStrings.copyLinkButton)
+    .addEventListener("click", view.copyLink);
 }
 
 // change the "chosenColor" variable
@@ -116,6 +128,12 @@ function toggleFeature(e) {
     // if the feature was changed to false, animate removing the feature from the selected features list
     view.removeFeature(e.target, feature);
   }
+}
+
+function generateLink() {
+  const chosenColors = view.getChairColors();
+  const url = model.generateLink(chosenColors);
+  view.outputLink(url);
 }
 
 // start the app
