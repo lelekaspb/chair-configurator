@@ -1,5 +1,8 @@
 "use strict";
 
+// screen size of 550px, used for checking whether the page is rendered on a device smaller than 551px
+// export let mql = window.matchMedia("(max-width: 550px)");
+
 export const defaultColor = "#d7d6d7";
 
 // default chosen color

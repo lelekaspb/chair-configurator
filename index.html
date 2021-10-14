@@ -10,109 +10,131 @@
   </head>
   <body>
     <div class="content">
-      <section class="preview">
-        <!-- <img src="images/layers/base_cut-01.svg" alt="Basic chair" class="base" /> -->
-        <div id="base" class="base"></div>
-
-        <img
-          src="images/layers/casters_cut.png"
-          alt="Flexible casters"
-          class="hide layer"
-          data-feature="casters"
-        />
-        <img
-          src="images/layers/headrest_cut.png"
-          alt="Headrest"
-          class="hide layer"
-          data-feature="headrest"
-        />
-        <img
-          src="images/layers/arm-left_cut.png"
-          alt="Left arm"
-          class="hide layer"
-          data-feature="armrests"
-        />
-        <img
-          src="images/layers/arm-right_cut.png"
-          alt="Right arm"
-          class="hide layer"
-          data-feature="armrests"
-        />
-      </section>
-      <section class="configurator">
-        <div class="restart">
-          <button id="restart">Restart</button>
+      <section id="selected">
+        <h1>Your chair</h1>
+        <!-- <div>
+          <img
+            src="images/layers/base_cut.png"
+            alt="chair"
+            class="selected_chair"
+          />
+        </div> -->
+        <div class="selected_colors">
+          <div class="selected_color back" data-part="back">
+            <div class="color" data-color="#d7d6d7"></div>
+            <span>&nbsp;Back </span>
+          </div>
+          <div class="selected_color seat" data-part="seat">
+            <div class="color" data-color="#d7d6d7"></div>
+            <span>&nbsp;Seat</span>
+          </div>
+          <div class="selected_color seat_bottom" data-part="seat_bottom">
+            <div class="color" data-color="#d7d6d7"></div>
+            <span>&nbsp;Bottom </span>
+          </div>
         </div>
+        <ul></ul>
+        <button id="save">Save</button>
+      </section>
+      <section class="link_wrapper">
+        <button id="link_button">Generate link</button>
+        <div class="link_container">
+          <input type="text" id="link_output" />
+          <button id="copy_link">
+            <img src="images/icons/copy_icon_orange.png" alt="copy icon" />
+          </button>
+        </div>
+      </section>
+      <section class="preview">
         <div class="colors">
+          <div class="border">
+            <div class="color" data-color="#41A8BF"></div>
+          </div>
+          <div class="border">
+            <div class="color" data-color="#55CCD9"></div>
+          </div>
+          <div class="border">
+            <div class="color" data-color="#F25244"></div>
+          </div>
+          <div class="border">
+            <div class="color" data-color="#D96055"></div>
+          </div>
           <div class="border active">
             <div class="color" data-color="#d7d6d7"></div>
           </div>
           <div class="border">
-            <div class="color" data-color="#33B4FF"></div>
-          </div>
-          <div class="border">
-            <div class="color" data-color="#52D42E"></div>
-          </div>
-          <div class="border">
-            <div class="color" data-color="#E45317"></div>
-          </div>
-          <div class="border">
-            <div class="color" data-color="#E4BA17"></div>
-          </div>
-          <div class="border">
-            <div class="color" data-color="#FD54F0"></div>
-          </div>
-          <div class="border">
-            <div class="color" data-color="#424242"></div>
-          </div>
-          <div class="border">
-            <div class="color" data-color="#F4F653"></div>
+            <div class="color" data-color="#444445"></div>
           </div>
         </div>
-        <div class="options_wrapper">
-          Available features
-          <div class="options">
-            <figure class="option" data-feature="casters">
-              <img src="images/features/feature-casters.png" alt="casters" />
-              <img
-                src="images/features/feature-casters.png"
-                alt="casters"
-                class="extra"
-              />
-              <figcaption>Flexible casters</figcaption>
-            </figure>
-            <figure class="option" data-feature="headrest">
-              <img src="images/features/feature-headrest.png" alt="headrest" />
-              <img
-                src="images/features/feature-headrest.png"
-                alt="headrest"
-                class="extra"
-              />
-              <figcaption>Headrest</figcaption>
-            </figure>
-            <figure class="option" data-feature="armrests">
-              <img src="images/features/feature-armrests.png" alt="arms" />
-              <img
-                src="images/features/feature-armrests.png"
-                alt="arms"
-                class="extra"
-              />
-              <figcaption>Armrests</figcaption>
-            </figure>
+        <div class="visualizer">
+          <div class="wrapper">
+            <div id="base" class="base"></div>
+            <img
+              src="images/layers/casters_cut.png"
+              alt="Flexible casters"
+              class="hide layer"
+              data-feature="casters"
+            />
+            <img
+              src="images/layers/headrest_cut.png"
+              alt="Headrest"
+              class="hide layer"
+              data-feature="headrest"
+            />
+            <img
+              src="images/layers/arm-left_cut.png"
+              alt="Left arm"
+              class="hide layer"
+              data-feature="armrests"
+            />
+            <img
+              src="images/layers/arm-right_cut.png"
+              alt="Right arm"
+              class="hide layer"
+              data-feature="armrests"
+            />
           </div>
-        </div>
-        <div class="save">
-          <button id="save">Save</button>
         </div>
       </section>
-      <div id="selected">
-        <ul></ul>
-      </div>
-      <div class="link">
-        <button id="link_button">Generate link</button>
-        <input type="text" id="link_output" />
-        <button id="copy_link">Copy link</button>
-      </div>
+      <section class="options_wrapper">
+        <div class="options_header">
+          <img
+            src="images/icons/features_icon.png"
+            alt="features icon"
+            class="feature_icon"
+          />
+          <span class="header">Features</span>
+        </div>
+        <div class="options">
+          <figure class="option" data-feature="casters">
+            <img src="images/features/feature-casters.png" alt="casters" />
+            <figcaption>Flexible casters</figcaption>
+            <div class="extra">
+              <img src="images/features/feature-casters.png" alt="casters" />
+              <figcaption>Flexible casters</figcaption>
+            </div>
+          </figure>
+          <figure class="option" data-feature="headrest">
+            <img src="images/features/feature-headrest.png" alt="headrest" />
+            <figcaption>Headrest</figcaption>
+            <div class="extra">
+              <img src="images/features/feature-headrest.png" alt="headrest" />
+              <figcaption>Headrest</figcaption>
+            </div>
+          </figure>
+          <figure class="option" data-feature="armrests">
+            <img src="images/features/feature-armrests.png" alt="arms" />
+            <figcaption>Armrests</figcaption>
+            <div class="extra">
+              <img src="images/features/feature-armrests.png" alt="arms" />
+              <figcaption>Armrests</figcaption>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="restart">
+        <button id="restart">Reset</button>
+      </section>
     </div>
     <!-- <script src="script.js"></script> -->
     <script type="module" src="js/model.js"></script>

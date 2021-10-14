@@ -19,6 +19,9 @@ export const DOMStrings = {
   linkButton: "#link_button",
   linkOutput: "#link_output",
   copyLinkButton: "#copy_link",
+  selectedColor: ".selected_color",
+  optionsHeader: ".options_header",
+  optionsList: ".options",
 };
 
 // insert svg into DOM
@@ -70,6 +73,27 @@ export function renderFeatures() {
 // change color of the chair part that was clicked on
 export function changeColor(e) {
   e.target.style.fill = model.chosenColor;
+  changeSelectedColor(e.target.closest("g").id);
+}
+
+function changeSelectedColor(chairPart) {
+  document.querySelectorAll(DOMStrings.selectedColor).forEach((part) => {
+    if (chairPart === part.dataset.part) {
+      part.querySelector(".color").style.backgroundColor = model.chosenColor;
+    }
+  });
+}
+
+export function renderSelectedColors() {
+  document.querySelector(
+    `.selected_color[data-part="back"] .color`
+  ).style.backgroundColor = model.chair.back;
+  document.querySelector(
+    `.selected_color[data-part="seat"] .color`
+  ).style.backgroundColor = model.chair.seat;
+  document.querySelector(
+    `.selected_color[data-part="seat_bottom"] .color`
+  ).style.backgroundColor = model.chair.seatBottom;
 }
 
 // remove "active" class from the previously chosen color and add it to the newly chosen one
@@ -98,7 +122,11 @@ export function createFeatureElement(feature) {
   img.src = `images/features/feature-${feature}.png`;
   img.alt = capitalize(feature);
 
+  const span = document.createElement("span");
+  span.textContent = capitalize(feature);
+
   li.append(img);
+  li.append(span);
 
   return li;
 }
@@ -133,12 +161,14 @@ export function animateFeatureOut(existingFeatureElement, optionToAnimate) {
   setDeltas(firstFrame, lastFrame);
   optionToAnimate.classList.add("animate-feature");
   existingFeatureElement.querySelector("img").style.opacity = 0;
+  existingFeatureElement.querySelector("span").style.opacity = 0;
 
   optionToAnimate.addEventListener("animationend", function () {
     // remove picture of selected feature from the selected features list
     optionToAnimate.classList.remove("animate-feature");
     existingFeatureElement.remove();
     existingFeatureElement.querySelector("img").style.opacity = 1;
+    existingFeatureElement.querySelector("span").style.opacity = 1;
   });
 }
 
@@ -217,3 +247,20 @@ export function copyLink() {
   navigator.clipboard.writeText(copiedText.value);
   // the link is now copied
 }
+
+// export function checkScreenSize() {
+//   if (model.mql.matches) {
+//     console.log("screen size is no larger than 550px");
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+
+// export function hideOptions() {
+//   document.querySelector(DOMStrings.optionsList).style.display = "none";
+// }
+
+// export function showOptions() {
+//   document.querySelector(DOMStrings.optionsList).style.display = "flex";
+// }

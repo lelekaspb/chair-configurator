@@ -16,8 +16,10 @@ async function start() {
 // controlling function for inserting svg into DOM, giving it default color, rendering color palette, and adding event listeners
 function renderUI(svgData) {
   view.insertSvg(svgData);
+  view.renderSelectedColors();
   view.colorizeSvg();
   view.renderFeatures();
+  // checkScreenSize();
   registerEventListeners();
 }
 
@@ -78,6 +80,7 @@ function changeCurrentColor(e) {
 function resetChair() {
   // color the chair with default color
   resetChairColors();
+  view.renderSelectedColors();
   // remove all features
   view.renderFeatures();
   // remove highlight on all options (features)
@@ -95,6 +98,7 @@ function resetChairColors() {
   // colorize chair parts based on newly changed chair object
   view.colorizeSvg();
   // highlight the default color on the color palette
+
   view.changeActiveClass(
     document.querySelector(`.color[data-color="${model.defaultColor}"]`)
   );
@@ -135,6 +139,16 @@ function generateLink() {
   const url = model.generateLink(chosenColors);
   view.outputLink(url);
 }
+
+// function checkScreenSize() {
+//   const isSmall = view.checkScreenSize();
+//   if (isSmall) {
+//     view.hideOptions();
+//     document
+//       .querySelector(view.DOMStrings.optionsHeader)
+//       .addEventListener("click", view.showOptions);
+//   }
+// }
 
 // start the app
 start();
