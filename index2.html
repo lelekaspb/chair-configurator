@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Chair configurator</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="your-chair">
+        <h1>Your chair</h1>
+        <img
+          class="your-chair-img"
+          src="images/layers/base_cut.png"
+          alt="a small picture indicating your chair"
+        />
+        <ul class="added-features">
+          <li>Back colour:</li>
+          <li>Seat colour:</li>
+          <li>Lining colour:</li>
+          <li>Added headrest:</li>
+          <li>Added Armrest:</li>
+          <li>Added wheels:</li>
+        </ul>
+        <button class="save-btn">Save</button>
+      </div>
+      <div class="Generate-link">
+        <form action="#">
+          <input type="button" value="Generate link" class="generate-btn" />
+        </form>
+      </div>
+      <div class="chair-showcase">
+        <div class="colour-btns">
+          <button></button>
+          <button></button>
+          <button></button>
+        </div>
+        <div>
+          <section class="preview">
+            <!-- <img src="images/layers/base_cut-01.svg" alt="Basic chair" class="base" /> -->
+            <div id="base" class="base"></div>
+
+            <img
+              src="images/layers/casters_cut.png"
+              alt="Flexible casters"
+              class="hide layer"
+              data-feature="casters"
+            />
+            <img
+              src="images/layers/headrest_cut.png"
+              alt="Headrest"
+              class="hide layer"
+              data-feature="headrest"
+            />
+            <img
+              src="images/layers/arm-left_cut.png"
+              alt="Left arm"
+              class="hide layer"
+              data-feature="armrests"
+            />
+            <img
+              src="images/layers/arm-right_cut.png"
+              alt="Right arm"
+              class="hide layer"
+              data-feature="armrests"
+            />
+          </section>
+        </div>
+      </div>
+      <div class="reset">
+        <button class="reset-btn">Reset</button>
+      </div>
+      <div class="features">
+        <div class="feature-list">
+          <button class="features-btn">Features</button>
+          <ul class="feture-list-icon">
+            <li>Headrest</li>
+            <li>Armrests</li>
+            <li>Wheels</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="module" src="js/model.js"></script>
+  <script type="module" src="js/view.js"></script>
+  <script type="module" src="js/controller.js"></script>
+</html>

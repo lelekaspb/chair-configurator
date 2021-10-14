@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+* {
+  box-sizing: border-box;
+  margin: auto;
+}
 
 .content {
   display: grid;
@@ -211,4 +215,75 @@ input#link_output {
     transform-origin: 0 0;
     -webkit-transform-origin: 0 0;
   }
+}
+.container {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "your-chair Generate-link features"
+    "your-chair chair-showcase features"
+    "your-chair reset features";
+}
+.your-chair {
+  grid-area: your-chair;
+}
+.Generate-link {
+  grid-area: Generate-link;
+}
+.chair-showcase {
+  grid-area: chair-showcase;
+}
+.reset {
+  grid-area: reset;
+}
+.features {
+  grid-area: features;
+}
+
+.your-chair {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #888988;
+  margin: 0;
+  color: #707170;
+  padding: 170px 0;
+}
+.your-chair-img {
+  width: 30%;
+  height: auto;
+}
+.added-features {
+  font-size: 1.5rem;
+}
+.save-btn {
+  border: #707170 1px solid;
+  border-radius: 50px;
+  background-color: #707170;
+  color: #f28729;
+  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.75);
+}
+.generate-btn {
+  border: #707170 1px solid;
+  border-radius: 50px;
+  background-color: #707170;
+  color: #f28729;
+  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.75);
+}
+.features-btn {
+  border: #707170 1px solid;
+  border-radius: 50px;
+  background-color: #707170;
+  color: #f28729;
+  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.75);
+}
+.reset-btn {
+  border: #707170 1px solid;
+  border-radius: 50px;
+  color: #707170;
+}
+.added-features {
+  list-style-image: url("images/icons/white-circle.svg");
 }
