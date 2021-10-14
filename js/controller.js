@@ -100,7 +100,7 @@ function resetChairColors() {
   // highlight the default color on the color palette
 
   view.changeActiveClass(
-    document.querySelector(`.color[data-color="${model.defaultColor}"]`)
+    document.querySelector(`.colors .color[data-color="${model.defaultColor}"]`)
   );
 }
 

@@ -248,6 +248,7 @@ export function copyLink() {
   // the link is now copied
 }
 
+// to be continued...
 // export function checkScreenSize() {
 //   if (model.mql.matches) {
 //     console.log("screen size is no larger than 550px");

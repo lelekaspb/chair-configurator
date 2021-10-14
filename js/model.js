@@ -85,7 +85,7 @@ export function generateLink(chosenColors) {
   const casters = chair.features.casters;
   const headrest = chair.features.headrest;
   const armrests = chair.features.armrests;
-  const url = `https://lelekaspb.github.io/chair-configurator/?back=${back}&seat=${seat}&seatbottom=${seatbottom}&casters=${casters}&headrest=${headrest}&armrests=${armrests}`;
+  const url = `https://baevastudios.com/advancedAnimation/chair-configurator/?back=${back}&seat=${seat}&seatbottom=${seatbottom}&casters=${casters}&headrest=${headrest}&armrests=${armrests}`;
   return url;
 }
 
