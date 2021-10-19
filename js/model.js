@@ -1,8 +1,5 @@
 "use strict";
 
-// screen size of 550px, used for checking whether the page is rendered on a device smaller than 551px
-// export let mql = window.matchMedia("(max-width: 550px)");
-
 export const defaultColor = "#d7d6d7";
 
 // default chosen color
@@ -20,12 +17,14 @@ const defaultBaseColors = {
   },
 };
 
-export let chair = defaultBaseColors;
+export let chair = JSON.parse(JSON.stringify(defaultBaseColors));
 
 export function configurateChair(urlParams) {
   if (urlParams === undefined) {
     // if there is saved "chair" object in the local storage, get it for later use; otherwise, use the "defaultBaseColors" object
-    chair = JSON.parse(localStorage.getItem("chair")) || defaultBaseColors;
+    chair =
+      JSON.parse(localStorage.getItem("chair")) ||
+      JSON.parse(JSON.stringify(defaultBaseColors));
   } else {
     chair.back = urlParams.back;
     chair.seat = urlParams.seat;
@@ -57,7 +56,12 @@ export function changeChosenColorVar(color) {
 
 // reset the "chair" object to default (for the "restart" button)
 export function resetChairToDefault() {
-  chair = defaultBaseColors;
+  chair.back = defaultBaseColors.back;
+  chair.seat = defaultBaseColors.seat;
+  chair.seatBottom = defaultBaseColors.seatBottom;
+  chair.features.casters = defaultBaseColors.features.casters;
+  chair.features.armrests = defaultBaseColors.features.armrests;
+  chair.features.headrest = defaultBaseColors.features.headrest;
 }
 
 // get colors from the svg and store them in the "chair" object
@@ -78,14 +82,16 @@ export function changeChairFeature(feature) {
 }
 
 export function generateLink(chosenColors) {
-  // https://lelekaspb.github.io/chair-configurator/
   const back = chosenColors.back;
   const seat = chosenColors.seat;
   const seatbottom = chosenColors.seatBottom;
   const casters = chair.features.casters;
   const headrest = chair.features.headrest;
   const armrests = chair.features.armrests;
-  const url = `https://baevastudios.com/advancedAnimation/chair-configurator/?back=${back}&seat=${seat}&seatbottom=${seatbottom}&casters=${casters}&headrest=${headrest}&armrests=${armrests}`;
+  // const url = `https://baevastudios.com/advancedAnimation/chair-configurator/?back=${back}&seat=${seat}&seatbottom=${seatbottom}&casters=${casters}&headrest=${headrest}&armrests=${armrests}`;
+
+  const url = `https://lelekaspb.github.io/chair-configurator/?back=${back}&seat=${seat}&seatbottom=${seatbottom}&casters=${casters}&headrest=${headrest}&armrests=${armrests}`;
+
   return url;
 }
 

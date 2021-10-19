@@ -41,7 +41,6 @@ export function colorizeSvg() {
 export function renderFeatures() {
   // create array out of chair.features object in order to loop through it
   const featuresArray = Object.entries(model.chair.features);
-  console.log(featuresArray);
   // loop through saved features
   for (const [key, value] of featuresArray) {
     // if value of the feature ("key") is false, add class "hide" to the corresponding image layer on the chair visualizer
@@ -238,6 +237,9 @@ export function getChairColors() {
 // output link into input field
 export function outputLink(url) {
   document.querySelector(DOMStrings.linkOutput).value = url;
+  document
+    .querySelector(DOMStrings.linkOutput)
+    .addEventListener("blur", clearInput);
 }
 
 // copy link into clipboard
@@ -248,20 +250,6 @@ export function copyLink() {
   // the link is now copied
 }
 
-// to be continued...
-// export function checkScreenSize() {
-//   if (model.mql.matches) {
-//     console.log("screen size is no larger than 550px");
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }
-
-// export function hideOptions() {
-//   document.querySelector(DOMStrings.optionsList).style.display = "none";
-// }
-
-// export function showOptions() {
-//   document.querySelector(DOMStrings.optionsList).style.display = "flex";
-// }
+function clearInput(e) {
+  e.target.value = "";
+}

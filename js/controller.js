@@ -19,7 +19,6 @@ function renderUI(svgData) {
   view.renderSelectedColors();
   view.colorizeSvg();
   view.renderFeatures();
-  // checkScreenSize();
   registerEventListeners();
 }
 
@@ -106,11 +105,13 @@ function resetChairColors() {
 
 // save current configuration of the chair into local storage
 function saveConfiguration() {
+  console.log("saveConfiguration");
   // save the current configuration in the "chair" object
   const chosenColors = view.getChairColors();
   model.updateChairObject(chosenColors);
   // update local storage
   model.updateLocalStarage("chair", model.chair);
+  console.log(model.chair);
 }
 
 // toggle the feature option that was clicked on
@@ -139,16 +140,6 @@ function generateLink() {
   const url = model.generateLink(chosenColors);
   view.outputLink(url);
 }
-
-// function checkScreenSize() {
-//   const isSmall = view.checkScreenSize();
-//   if (isSmall) {
-//     view.hideOptions();
-//     document
-//       .querySelector(view.DOMStrings.optionsHeader)
-//       .addEventListener("click", view.showOptions);
-//   }
-// }
 
 // start the app
 start();
